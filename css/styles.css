@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Baking Spot - Purple Brand Theme & 32 Independent Products Catalog
+   The Baking Spot - Purple Brand Theme & 16 Independent Products Catalog
    Responsive 2-Cakes per row on mobile + Product Details Modal
    ========================================================================== */
 
@@ -7,11 +7,12 @@
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Purple Brand Palette */
+  /* Purple Brand Palette (Matching TBS Logo) */
   --purple-dark: #37115E;
   --purple-main: #4A154B;
   --purple-primary: #5A189A;
   --purple-vibrant: #7B2CBF;
+  --purple-hover: #6A1EAC;
   --purple-light: #F3E8FF;
   --purple-subtle: #FAF5FF;
   --purple-border: #D8B4FE;
@@ -157,20 +158,21 @@ button, input {
 .btn-preorder-header {
   display: inline-flex;
   align-items: center;
-  background: var(--whatsapp-green);
+  background: linear-gradient(135deg, #5A189A 0%, #4A154B 100%);
   color: #FFFFFF;
   font-size: 0.82rem;
   font-weight: 700;
   padding: 8px 16px;
   border-radius: var(--radius-full);
-  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.25);
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 3px 10px rgba(90, 24, 154, 0.3);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .btn-preorder-header:hover {
-  background: var(--whatsapp-hover);
+  background: linear-gradient(135deg, #7B2CBF 0%, #5A189A 100%);
   transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(123, 44, 191, 0.4);
 }
 
 /* ==========================================================================
@@ -218,7 +220,6 @@ button, input {
   display: block;
   object-fit: contain;
 }
-
 
 /* Slider Controls */
 .slider-arrow {
@@ -277,10 +278,60 @@ button, input {
 }
 
 /* ==========================================================================
+   PROMINENT PRE-ORDER NOTICE BANNERS (TOP & BOTTOM)
+   ========================================================================== */
+.notice-container {
+  max-width: 1240px;
+  margin: 10px auto 4px;
+  padding: 0 12px;
+}
+
+.notice-container-bottom {
+  margin: 28px auto 10px;
+  padding: 0;
+}
+
+.preorder-alert-banner {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  border-left: 6px solid #D97706;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.12);
+}
+
+.alert-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.alert-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #78350F;
+  line-height: 1.4;
+}
+
+.alert-text strong {
+  color: #92400E;
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .alert-text {
+    font-size: 0.96rem;
+  }
+}
+
+/* ==========================================================================
    CATALOG & MULTI-DIMENSIONAL FILTERS
    ========================================================================== */
 .catalog-section {
-  padding: 18px 12px 40px;
+  padding: 14px 12px 40px;
 }
 
 .catalog-container {
@@ -292,7 +343,7 @@ button, input {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 @media (min-width: 768px) {
@@ -332,6 +383,106 @@ button, input {
   border: 1px solid var(--purple-border);
 }
 
+/* Mobile Compact Filter Bar */
+.mobile-filter-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.btn-mobile-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--purple-primary);
+  color: var(--purple-dark);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(90, 24, 154, 0.12);
+  transition: all 0.2s ease;
+}
+
+.btn-mobile-filter-toggle:active {
+  transform: scale(0.97);
+}
+
+.m-filter-icon {
+  font-size: 0.95rem;
+}
+
+.m-filter-badge {
+  background: var(--purple-light);
+  color: var(--purple-primary);
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  border: 1px solid var(--purple-border);
+}
+
+.m-filter-chevron {
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-mobile-filter-toggle[aria-expanded="true"] .m-filter-chevron {
+  transform: rotate(180deg);
+}
+
+.btn-reset-filters {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-reset-filters:hover {
+  background: #FECACA;
+}
+
+/* Active Filter Chips */
+.active-filter-chips {
+  display: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.active-filter-chips.has-chips {
+  display: flex;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--purple-light);
+  border: 1px solid var(--purple-border);
+  color: var(--purple-dark);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.filter-chip-remove {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--purple-primary);
+  font-size: 0.8rem;
+}
+
 /* Background Filter Panel */
 .filters-panel {
   background: #FFFFFF;
@@ -343,6 +494,28 @@ button, input {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .mobile-filter-bar {
+    display: flex;
+  }
+
+  .filters-panel {
+    display: none;
+    padding: 12px;
+    gap: 10px;
+    animation: fadeInFilter 0.2s ease;
+  }
+
+  .filters-panel.is-open {
+    display: flex;
+  }
+}
+
+@keyframes fadeInFilter {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .filter-group {
@@ -410,7 +583,7 @@ button, input {
 
 /* ==========================================================================
    INDEPENDENT PRODUCT CARD GRID
-   Mobile Responsive: Strictly 2 Cakes per Single Row
+   Original Image Aspect Ratio (1:1 Square) Without Any Logo Cropping
    ========================================================================== */
 .cake-product-grid {
   display: grid;
@@ -450,54 +623,25 @@ button, input {
   border-color: var(--purple-border);
 }
 
+/* Original 1:1 Square Image Box (Full view without cutting top/bottom logo) */
 .product-image-box {
   position: relative;
   width: 100%;
-  padding-top: 80%; /* Aspect ratio */
-  background: #F3EEF8;
+  aspect-ratio: 1 / 1; /* Match original image 1254x1254 aspect ratio */
+  background: #F8F4FC;
   overflow: hidden;
 }
 
 .product-image-box img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  object-fit: contain; /* Full image visible with no cutting */
+  display: block;
+  transition: transform 0.35s ease;
 }
 
 .product-card:hover .product-image-box img {
-  transform: scale(1.05);
-}
-
-.badge-cat {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--purple-dark);
-  border: 1px solid var(--purple-border);
-  font-size: 0.64rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: var(--radius-full);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.badge-flavour {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(255, 253, 240, 0.94);
-  color: #8C5B05;
-  border: 1px solid #FCD34D;
-  font-size: 0.64rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: var(--radius-full);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transform: scale(1.03);
 }
 
 .product-content {
@@ -509,19 +653,25 @@ button, input {
 
 @media (min-width: 600px) {
   .product-content {
-    padding: 14px;
+    padding: 12px 14px;
   }
 }
 
+.product-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
 .product-event-tag {
-  align-self: flex-start;
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 2px 5px;
+  letter-spacing: 0.03em;
+  padding: 2px 6px;
   border-radius: var(--radius-sm);
-  margin-bottom: 4px;
 }
 
 .tag-teacher {
@@ -532,6 +682,25 @@ button, input {
 .tag-krishna {
   background: #EFF6FF;
   color: #1D4ED8;
+}
+
+.badge-cat, .badge-flavour {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+.badge-cat {
+  background: #FAF5FF;
+  color: var(--purple-primary);
+  border: 1px solid var(--purple-border);
+}
+
+.badge-flavour {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FCD34D;
 }
 
 .product-name {
@@ -545,7 +714,7 @@ button, input {
 
 @media (min-width: 600px) {
   .product-name {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -559,7 +728,7 @@ button, input {
 
 @media (min-width: 600px) {
   .product-short-desc {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -596,23 +765,24 @@ button, input {
 
 @media (min-width: 600px) {
   .price-val {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }
 
+/* Pre Order Button - Purple Brand Color */
 .btn-direct-order {
   width: 100%;
-  background: var(--whatsapp-green);
+  background: linear-gradient(135deg, #5A189A 0%, #4A154B 100%);
   color: #FFFFFF;
   border: none;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 700;
   padding: 8px 10px;
   border-radius: var(--radius-full);
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 3px 10px rgba(90, 24, 154, 0.3);
   white-space: nowrap;
 }
 
@@ -626,7 +796,8 @@ button, input {
 }
 
 .btn-direct-order:hover {
-  background: var(--whatsapp-hover);
+  background: linear-gradient(135deg, #7B2CBF 0%, #5A189A 100%);
+  box-shadow: 0 4px 14px rgba(123, 44, 191, 0.45);
   transform: translateY(-1px);
 }
 
@@ -705,13 +876,16 @@ button, input {
   border-radius: var(--radius-md);
   overflow: hidden;
   background: #F8F4FC;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-img {
   width: 100%;
   height: 100%;
-  max-height: 260px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -774,7 +948,18 @@ button, input {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.modal-preorder-notice {
+  background: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-left: 4px solid #F59E0B;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  color: #78350F;
+  margin-bottom: 12px;
 }
 
 .modal-delivery-perk {
@@ -843,7 +1028,7 @@ button, input {
 
 .btn-modal-preorder {
   flex-grow: 1;
-  background: var(--whatsapp-green);
+  background: linear-gradient(135deg, #5A189A 0%, #4A154B 100%);
   color: #FFFFFF;
   border: none;
   font-size: 0.92rem;
@@ -852,12 +1037,13 @@ button, input {
   border-radius: var(--radius-full);
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(90, 24, 154, 0.35);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-modal-preorder:hover {
-  background: var(--whatsapp-hover);
+  background: linear-gradient(135deg, #7B2CBF 0%, #5A189A 100%);
+  box-shadow: 0 6px 18px rgba(123, 44, 191, 0.45);
   transform: translateY(-1px);
 }
 
@@ -1012,18 +1198,19 @@ button, input {
 }
 
 .btn-sticky-order {
-  background: var(--whatsapp-green);
+  background: linear-gradient(135deg, #7B2CBF 0%, #5A189A 100%);
   color: #FFF;
   font-size: 0.82rem;
   font-weight: 700;
   padding: 8px 16px;
   border-radius: var(--radius-full);
   white-space: nowrap;
-  transition: background 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
 }
 
 .btn-sticky-order:hover {
-  background: var(--whatsapp-hover);
+  background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
 }
 
 .toast-popup {

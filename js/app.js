@@ -1,6 +1,6 @@
 /**
  * The Baking Spot - Purple Theme Sales Post Catalog
- * 2-Slide Hero Carousel, Multi-dimensional Filters, Modal Popups & WhatsApp Pre-orders
+ * 2-Slide Hero Carousel, Compact Mobile & Multi-dimensional Filters, Modal Popups & WhatsApp Pre-orders
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,7 +95,7 @@ function initHeroSlider() {
 }
 
 /* ==========================================================================
-   2. Multi-Dimensional Background Filters
+   2. Multi-Dimensional & Compact Mobile Filters
    ========================================================================== */
 const filterState = {
   collection: 'all',
@@ -103,48 +103,176 @@ const filterState = {
   flavour: 'all'
 };
 
+const filterDisplayNames = {
+  collection: {
+    'all': 'All Collections',
+    'teacher': "Teacher's Day",
+    'krishna': 'Janmashtami'
+  },
+  category: {
+    'all': 'All Categories',
+    'bento': 'Bento',
+    'half-kg': 'Half Kg',
+    '1-kg': '1 Kg'
+  },
+  flavour: {
+    'all': 'All Flavours',
+    'pineapple': 'Pineapple',
+    'butterscotch': 'Butterscotch',
+    'choco-truffle': 'Choco Truffle',
+    'vanilla': 'Vanilla'
+  }
+};
+
 function initMultiFilters() {
   const pills = document.querySelectorAll('.filter-pill');
   const products = document.querySelectorAll('.product-card');
   const counter = document.getElementById('productsCounter');
+  const mobileToggleBtn = document.getElementById('mobileFilterToggleBtn');
+  const filtersPanel = document.getElementById('filtersPanel');
+  const mobileBadge = document.getElementById('mobileFilterBadge');
+  const resetBtn = document.getElementById('btnResetFilters');
+  const chipsContainer = document.getElementById('activeFilterChips');
 
+  // Mobile Filter Panel Toggle
+  if (mobileToggleBtn && filtersPanel) {
+    mobileToggleBtn.addEventListener('click', () => {
+      const isOpen = filtersPanel.classList.toggle('is-open');
+      mobileToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
+  // Reset Filters Button
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      resetAllFilters();
+    });
+  }
+
+  function resetAllFilters() {
+    filterState.collection = 'all';
+    filterState.category = 'all';
+    filterState.flavour = 'all';
+
+    pills.forEach(p => {
+      if (p.dataset.value === 'all') {
+        p.classList.add('active');
+      } else {
+        p.classList.remove('active');
+      }
+    });
+
+    applyFilters();
+  }
+
+  function updateMobileBadgeAndChips() {
+    const activeFilters = [];
+
+    if (filterState.collection !== 'all') {
+      activeFilters.push({ type: 'collection', label: filterDisplayNames.collection[filterState.collection] || filterState.collection });
+    }
+    if (filterState.category !== 'all') {
+      activeFilters.push({ type: 'category', label: filterDisplayNames.category[filterState.category] || filterState.category });
+    }
+    if (filterState.flavour !== 'all') {
+      activeFilters.push({ type: 'flavour', label: filterDisplayNames.flavour[filterState.flavour] || filterState.flavour });
+    }
+
+    // Update Mobile Badge Text
+    if (mobileBadge) {
+      if (activeFilters.length === 0) {
+        mobileBadge.textContent = 'All';
+      } else {
+        mobileBadge.textContent = `${activeFilters.length} Active`;
+      }
+    }
+
+    // Toggle Reset Button Visibility
+    if (resetBtn) {
+      resetBtn.style.display = activeFilters.length > 0 ? 'inline-block' : 'none';
+    }
+
+    // Render Active Filter Chips
+    if (chipsContainer) {
+      if (activeFilters.length > 0) {
+        chipsContainer.classList.add('has-chips');
+        chipsContainer.innerHTML = activeFilters.map(f => `
+          <span class="filter-chip">
+            ${f.label}
+            <span class="filter-chip-remove" data-remove-type="${f.type}" title="Remove filter">&times;</span>
+          </span>
+        `).join('');
+
+        chipsContainer.querySelectorAll('.filter-chip-remove').forEach(removeBtn => {
+          removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const filterType = removeBtn.dataset.removeType;
+            filterState[filterType] = 'all';
+
+            // Update pills for this filter group
+            pills.forEach(p => {
+              if (p.dataset.filterType === filterType) {
+                if (p.dataset.value === 'all') {
+                  p.classList.add('active');
+                } else {
+                  p.classList.remove('active');
+                }
+              }
+            });
+
+            applyFilters();
+          });
+        });
+      } else {
+        chipsContainer.classList.remove('has-chips');
+        chipsContainer.innerHTML = '';
+      }
+    }
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    products.forEach(card => {
+      const colMatch = (filterState.collection === 'all') || (card.dataset.collection === filterState.collection);
+      const catMatch = (filterState.category === 'all') || (card.dataset.category === filterState.category);
+      const flavMatch = (filterState.flavour === 'all') || (card.dataset.flavour === filterState.flavour);
+
+      if (colMatch && catMatch && flavMatch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (counter) {
+      counter.textContent = `Showing ${visibleCount} Cakes`;
+    }
+
+    updateMobileBadgeAndChips();
+  }
+
+  // Pill click handlers
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const type = pill.dataset.filterType;
       const value = pill.dataset.value;
 
-      // Update state
       filterState[type] = value;
 
-      // Update active state within the same group
       const parentGroup = pill.closest('.filter-pills');
       if (parentGroup) {
         parentGroup.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
       }
 
-      // Apply filter to all 32 product cards
-      let visibleCount = 0;
-
-      products.forEach(card => {
-        const colMatch = (filterState.collection === 'all') || (card.dataset.collection === filterState.collection);
-        const catMatch = (filterState.category === 'all') || (card.dataset.category === filterState.category);
-        const flavMatch = (filterState.flavour === 'all') || (card.dataset.flavour === filterState.flavour);
-
-        if (colMatch && catMatch && flavMatch) {
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      // Update counter
-      if (counter) {
-        counter.textContent = `Showing ${visibleCount} Cakes`;
-      }
+      applyFilters();
     });
   });
+
+  // Initial setup
+  applyFilters();
 }
 
 /* ==========================================================================
@@ -198,8 +326,8 @@ window.openProductModal = function(cardEl) {
   const imgSrc = imgEl ? imgEl.src : '';
   const name = titleEl ? titleEl.textContent.trim() : 'Celebration Cake';
   const desc = descEl ? descEl.textContent.trim() : 'Freshly baked artisanal cake with pure vegetarian ingredients.';
-  const price = priceValEl ? priceValEl.textContent.trim() : '399';
-  const category = catBadgeEl ? catBadgeEl.textContent.trim() : 'Festive Cake';
+  const price = priceValEl ? priceValEl.textContent.trim().replace(/,/g, '') : '600';
+  const category = catBadgeEl ? catBadgeEl.textContent.trim() : 'Half Kg Cake';
   const flavour = flavBadgeEl ? flavBadgeEl.textContent.trim() : 'Artisan Flavour';
   const eventName = eventTagEl ? eventTagEl.textContent.trim() : "Teacher's Day";
 
@@ -225,7 +353,7 @@ window.openProductModal = function(cardEl) {
   if (mImg) mImg.src = imgSrc;
   if (mTitle) mTitle.textContent = name;
   if (mDesc) mDesc.textContent = `${desc} Prepared in a 100% vegetarian sanctified kitchen with fresh dairy cream, real butter, and premium ingredients.`;
-  if (mPrice) mPrice.textContent = `₹${price}`;
+  if (mPrice) mPrice.textContent = `₹${priceValEl ? priceValEl.textContent.trim() : price}`;
   if (mEvent) mEvent.textContent = eventName;
   if (mCat) mCat.textContent = category;
   if (mFlav) mFlav.textContent = flavour;
@@ -243,12 +371,13 @@ window.submitModalOrder = function() {
 ━━━━━━━━━━━━━━━━━━━━
 🍰 *Product:* *${activeModalData.name}*
 ✨ *Collection:* ${activeModalData.collection}
-📦 *Category:* ${activeModalData.category}
+📦 *Category/Size:* ${activeModalData.category}
 🍍 *Flavour:* ${activeModalData.flavour}
 💰 *Price:* ₹${activeModalData.price}
 🌱 *Dietary:* 100% Pure Veg & Eggless
+⏰ *Notice:* Pre-ordered 4+ hours in advance
 📍 *Delivery:* Prateek Grand City (Free Doorstep Society Delivery)
-${customMessage ? `✍️ *Custom Inscription:* "${customMessage}"\n` : ''}━━━━━━━━━━━━━━━━━━━━
+${customMessage ? `✍️ *Custom Message:* "${customMessage}"\n` : ''}━━━━━━━━━━━━━━━━━━━━
 Hi The Baking Spot! Please confirm slot availability and delivery time.`;
 
   const waUrl = `https://wa.me/918440882334?text=${encodeURIComponent(waText)}`;
@@ -268,10 +397,11 @@ window.directWhatsAppOrder = function(productName, price, category, flavour, col
 ━━━━━━━━━━━━━━━━━━━━
 🍰 *Product:* *${productName}*
 ✨ *Collection:* ${collection}
-📦 *Category:* ${category}
+📦 *Category/Size:* ${category}
 🍍 *Flavour:* ${flavour}
 💰 *Direct Price:* ₹${price}
 🌱 *Dietary:* 100% Pure Veg & Eggless
+⏰ *Notice:* Pre-ordered 4+ hours in advance
 📍 *Delivery:* Prateek Grand City (Free Doorstep Society Delivery)
 ━━━━━━━━━━━━━━━━━━━━
 Hi The Baking Spot! Please confirm slot availability and delivery time.`;
