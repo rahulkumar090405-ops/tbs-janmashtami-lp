@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Baking Spot | Every Bake, A Statement. Every Box, A Memory</title>
-  <meta name="description" content="Order independent artisan festive cakes for Teacher's Day and Krishna Janmashtami from The Baking Spot. Bento, Half Kg, and 1 Kg Cakes. 100% Pure Veg & Eggless. Free delivery in Prateek Grand City.">
+  <meta name="description"
+    content="Order independent artisan festive cakes for Teacher's Day and Krishna Janmashtami from The Baking Spot. Bento, Half Kg, and 1 Kg Cakes. 100% Pure Veg & Eggless. Free delivery in Prateek Grand City.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
 </head>
-<body>
 
+<body>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+  </script>
+
+  <script defer src="/_vercel/insights/script.js"></script>
   <!-- Minimal Purple Header -->
   <header class="tbs-header">
     <div class="header-container">
@@ -22,11 +35,11 @@
           <span class="tagline">Every Bake, A Statement. Every Box, A Memory</span>
         </div>
       </a>
-      
+
       <div class="header-actions">
         <span class="veg-badge">🌱 100% Pure Veg &amp; Eggless</span>
-        <a href="https://wa.me/918440882334?text=Hi%20The%20Baking%20Spot!%20I%20would%20like%20to%20place%20a%20pre-order." 
-           target="_blank" rel="noopener noreferrer" class="btn-preorder-header">
+        <a href="https://wa.me/918440882334?text=Hi%20The%20Baking%20Spot!%20I%20would%20like%20to%20place%20a%20pre-order."
+          target="_blank" rel="noopener noreferrer" class="btn-preorder-header">
           Pre Order Now
         </a>
       </div>
@@ -37,24 +50,20 @@
     <!-- Top 2-Image Slider Carousel -->
     <section class="hero-slider-section">
       <div class="slider-wrapper" id="heroSlider">
-        
+
         <!-- Slide 1: Teacher's Day Banner -->
         <div class="slider-slide active" data-slide="0">
           <a href="#catalog" class="slide-link" title="Click to view Teacher's Day Cakes">
-            <img src="images/banner_teachers_day.jpg" 
-                 alt="Happy Teacher's Day Cake Specials - The Baking Spot" 
-                 class="slide-image" 
-                 loading="eager">
+            <img src="images/banner_teachers_day.jpg" alt="Happy Teacher's Day Cake Specials - The Baking Spot"
+              class="slide-image" loading="eager">
           </a>
         </div>
 
         <!-- Slide 2: Krishna Janmashtami Banner -->
         <div class="slider-slide" data-slide="1">
           <a href="#catalog" class="slide-link" title="Click to view Janmashtami Cakes">
-            <img src="images/banner_janmashtami.jpg" 
-                 alt="Happy Krishna Janmashtami Cake Specials - The Baking Spot" 
-                 class="slide-image" 
-                 loading="lazy">
+            <img src="images/banner_janmashtami.jpg" alt="Happy Krishna Janmashtami Cake Specials - The Baking Spot"
+              class="slide-image" loading="lazy">
           </a>
         </div>
 
@@ -75,14 +84,15 @@
     <div class="notice-container">
       <div class="preorder-alert-banner">
         <span class="alert-icon">⚠️</span>
-        <span class="alert-text"><strong>IMPORTANT:</strong> Please pre-order your cake at least 4 hours in advance.</span>
+        <span class="alert-text"><strong>IMPORTANT:</strong> Please pre-order your cake at least 4 hours in
+          advance.</span>
       </div>
     </div>
 
     <!-- Catalog Section with Multi-Dimensional Filters -->
     <section class="catalog-section" id="catalog">
       <div class="catalog-container">
-        
+
         <!-- Section Header -->
         <div class="catalog-header-wrap">
           <div>
@@ -94,13 +104,14 @@
 
         <!-- Mobile Compact Filter Bar (< 768px) -->
         <div class="mobile-filter-bar">
-          <button type="button" class="btn-mobile-filter-toggle" id="mobileFilterToggleBtn" aria-expanded="false" aria-controls="filtersPanel">
+          <button type="button" class="btn-mobile-filter-toggle" id="mobileFilterToggleBtn" aria-expanded="false"
+            aria-controls="filtersPanel">
             <span class="m-filter-icon">⚙️</span>
             <span class="m-filter-btn-text">Filter Cakes</span>
             <span class="m-filter-badge" id="mobileFilterBadge">All</span>
             <span class="m-filter-chevron" id="mobileFilterChevron">▾</span>
           </button>
-          
+
           <button type="button" class="btn-reset-filters" id="btnResetFilters" style="display: none;">
             Reset ✕
           </button>
@@ -111,7 +122,7 @@
 
         <!-- Background Filter Controls (Desktop visible / Mobile collapsible) -->
         <div class="filters-panel" id="filtersPanel">
-          
+
           <!-- Filter Group 1: Festive Collection -->
           <div class="filter-group">
             <span class="filter-label">🎉 Festive Event:</span>
@@ -179,9 +190,11 @@
           <!-- ========================================== -->
 
           <!-- 1. Teacher's Day Butterscotch Half Kg Cake -->
-          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="butterscotch" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="butterscotch"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/teachers_day_1_butterscotch_600.png" alt="Teacher’s Day Butterscotch Half Kg Cake" loading="lazy">
+              <img src="images/teachers_day_1_butterscotch_600.png" alt="Teacher’s Day Butterscotch Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -190,13 +203,15 @@
                 <span class="badge-flavour">🌰 Butterscotch</span>
               </div>
               <h3 class="product-name">Teacher’s Day Butterscotch Cake</h3>
-              <p class="product-short-desc">Handcrafted with golden praline crunch, moist sponge, and pure dairy cream.</p>
+              <p class="product-short-desc">Handcrafted with golden praline crunch, moist sponge, and pure dairy cream.
+              </p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">600</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Butterscotch Cake', '600', 'Half Kg Cake', 'Butterscotch', 'Teacher\'s Day')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Butterscotch Cake', '600', 'Half Kg Cake', 'Butterscotch', 'Teacher\'s Day')">
                   Pre Order Now
                 </button>
               </div>
@@ -204,9 +219,11 @@
           </article>
 
           <!-- 2. Teacher's Day Choco Truffle Half Kg Cake -->
-          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="choco-truffle" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="choco-truffle"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/teachers_day_2_truffle_600.png" alt="Teacher’s Day Choco Truffle Half Kg Cake" loading="lazy">
+              <img src="images/teachers_day_2_truffle_600.png" alt="Teacher’s Day Choco Truffle Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -215,13 +232,15 @@
                 <span class="badge-flavour">🍫 Choco Truffle</span>
               </div>
               <h3 class="product-name">Teacher’s Day Choco Truffle Cake</h3>
-              <p class="product-short-desc">Decadent chocolate sponge layered with rich Belgian dark chocolate ganache.</p>
+              <p class="product-short-desc">Decadent chocolate sponge layered with rich Belgian dark chocolate ganache.
+              </p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">600</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Choco Truffle Cake', '600', 'Half Kg Cake', 'Choco Truffle', 'Teacher\'s Day')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Choco Truffle Cake', '600', 'Half Kg Cake', 'Choco Truffle', 'Teacher\'s Day')">
                   Pre Order Now
                 </button>
               </div>
@@ -229,7 +248,8 @@
           </article>
 
           <!-- 3. Teacher's Day Vanilla Half Kg Cake -->
-          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="vanilla" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="vanilla"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/teachers_day_3_vanilla_750.png" alt="Teacher’s Day Vanilla Half Kg Cake" loading="lazy">
             </div>
@@ -240,13 +260,15 @@
                 <span class="badge-flavour">🍦 Vanilla</span>
               </div>
               <h3 class="product-name">Teacher’s Day Vanilla Cake</h3>
-              <p class="product-short-desc">Premium Madagascar vanilla cake with delicate floral piping and pure eggless sponge.</p>
+              <p class="product-short-desc">Premium Madagascar vanilla cake with delicate floral piping and pure eggless
+                sponge.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">750</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Vanilla Cake', '750', 'Half Kg Cake', 'Vanilla', 'Teacher\'s Day')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Vanilla Cake', '750', 'Half Kg Cake', 'Vanilla', 'Teacher\'s Day')">
                   Pre Order Now
                 </button>
               </div>
@@ -254,9 +276,11 @@
           </article>
 
           <!-- 4. Teacher's Day Pineapple Half Kg Cake -->
-          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="pineapple" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="teacher" data-category="half-kg" data-flavour="pineapple"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/teachers_day_4_pineapple_750.png" alt="Teacher’s Day Pineapple Half Kg Cake" loading="lazy">
+              <img src="images/teachers_day_4_pineapple_750.png" alt="Teacher’s Day Pineapple Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -265,13 +289,15 @@
                 <span class="badge-flavour">🍍 Pineapple</span>
               </div>
               <h3 class="product-name">Teacher’s Day Pineapple Cake</h3>
-              <p class="product-short-desc">Exquisite pineapple cake filled with juicy fruit chunks and light vanilla whipped cream.</p>
+              <p class="product-short-desc">Exquisite pineapple cake filled with juicy fruit chunks and light vanilla
+                whipped cream.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">750</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Pineapple Cake', '750', 'Half Kg Cake', 'Pineapple', 'Teacher\'s Day')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Teacher’s Day Pineapple Cake', '750', 'Half Kg Cake', 'Pineapple', 'Teacher\'s Day')">
                   Pre Order Now
                 </button>
               </div>
@@ -284,7 +310,8 @@
           <!-- ========================================== -->
 
           <!-- 5. Little Kanha Vanilla Bento Cake -->
-          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="vanilla" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="vanilla"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/banto_cake_1_vanilla_250.png" alt="Little Kanha Vanilla Bento Cake" loading="lazy">
             </div>
@@ -301,7 +328,8 @@
                   <span class="price-currency">₹</span>
                   <span class="price-val">250</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla Bento Cake', '250', 'Bento Cake', 'Vanilla', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla Bento Cake', '250', 'Bento Cake', 'Vanilla', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -309,7 +337,8 @@
           </article>
 
           <!-- 6. Little Kanha Pineapple Bento Cake -->
-          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="pineapple" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="pineapple"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/banto_cake_2_pineapple_280.png" alt="Little Kanha Pineapple Bento Cake" loading="lazy">
             </div>
@@ -326,7 +355,8 @@
                   <span class="price-currency">₹</span>
                   <span class="price-val">280</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple Bento Cake', '280', 'Bento Cake', 'Pineapple', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple Bento Cake', '280', 'Bento Cake', 'Pineapple', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -334,7 +364,8 @@
           </article>
 
           <!-- 7. Little Kanha Choco Truffle Bento Cake -->
-          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="choco-truffle" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="choco-truffle"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/banto_cake_3_truffle_350.png" alt="Little Kanha Choco Truffle Bento Cake" loading="lazy">
             </div>
@@ -351,7 +382,8 @@
                   <span class="price-currency">₹</span>
                   <span class="price-val">350</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle Bento Cake', '350', 'Bento Cake', 'Choco Truffle', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle Bento Cake', '350', 'Bento Cake', 'Choco Truffle', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -359,9 +391,11 @@
           </article>
 
           <!-- 8. Little Kanha Butterscotch Bento Cake -->
-          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="butterscotch" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="bento" data-flavour="butterscotch"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/banto_cake_4_butterscotch_300.png" alt="Little Kanha Butterscotch Bento Cake" loading="lazy">
+              <img src="images/banto_cake_4_butterscotch_300.png" alt="Little Kanha Butterscotch Bento Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -370,13 +404,15 @@
                 <span class="badge-flavour">🌰 Butterscotch</span>
               </div>
               <h3 class="product-name">Little Kanha Butterscotch Bento Cake</h3>
-              <p class="product-short-desc">Cute mini celebration cake with golden butterscotch crunch and silky caramel.</p>
+              <p class="product-short-desc">Cute mini celebration cake with golden butterscotch crunch and silky
+                caramel.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">300</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch Bento Cake', '300', 'Bento Cake', 'Butterscotch', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch Bento Cake', '300', 'Bento Cake', 'Butterscotch', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -384,7 +420,8 @@
           </article>
 
           <!-- 9. Little Kanha Vanilla Half Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="vanilla" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="vanilla"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/kirshana_theme_1_vanilla_500.png" alt="Little Kanha Vanilla Half Kg Cake" loading="lazy">
             </div>
@@ -395,13 +432,15 @@
                 <span class="badge-flavour">🍦 Vanilla</span>
               </div>
               <h3 class="product-name">Little Kanha Vanilla Half Kg Cake</h3>
-              <p class="product-short-desc">Janmashtami special Krishna theme vanilla cake with divine festive decoration.</p>
+              <p class="product-short-desc">Janmashtami special Krishna theme vanilla cake with divine festive
+                decoration.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">500</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla Half Kg Cake', '500', 'Half Kg Cake', 'Vanilla', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla Half Kg Cake', '500', 'Half Kg Cake', 'Vanilla', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -409,9 +448,11 @@
           </article>
 
           <!-- 10. Little Kanha Pineapple Half Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="pineapple" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="pineapple"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_2_pineapple_650.png" alt="Little Kanha Pineapple Half Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_2_pineapple_650.png" alt="Little Kanha Pineapple Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -420,13 +461,15 @@
                 <span class="badge-flavour">🍍 Pineapple</span>
               </div>
               <h3 class="product-name">Little Kanha Pineapple Half Kg Cake</h3>
-              <p class="product-short-desc">Janmashtami special Krishna theme pineapple cake with fresh tropical fruit notes.</p>
+              <p class="product-short-desc">Janmashtami special Krishna theme pineapple cake with fresh tropical fruit
+                notes.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">650</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple Half Kg Cake', '650', 'Half Kg Cake', 'Pineapple', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple Half Kg Cake', '650', 'Half Kg Cake', 'Pineapple', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -434,9 +477,11 @@
           </article>
 
           <!-- 11. Little Kanha Butterscotch Half Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="butterscotch" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="butterscotch"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_3_butterscotch_650.png" alt="Little Kanha Butterscotch Half Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_3_butterscotch_650.png" alt="Little Kanha Butterscotch Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -445,13 +490,15 @@
                 <span class="badge-flavour">🌰 Butterscotch</span>
               </div>
               <h3 class="product-name">Little Kanha Butterscotch Half Kg Cake</h3>
-              <p class="product-short-desc">Janmashtami special Krishna theme butterscotch cake with crunchy praline.</p>
+              <p class="product-short-desc">Janmashtami special Krishna theme butterscotch cake with crunchy praline.
+              </p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">650</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch Half Kg Cake', '650', 'Half Kg Cake', 'Butterscotch', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch Half Kg Cake', '650', 'Half Kg Cake', 'Butterscotch', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -459,9 +506,11 @@
           </article>
 
           <!-- 12. Little Kanha Choco Truffle Half Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="choco-truffle" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="half-kg" data-flavour="choco-truffle"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_4_truffle_850.png" alt="Little Kanha Choco Truffle Half Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_4_truffle_850.png" alt="Little Kanha Choco Truffle Half Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -470,13 +519,15 @@
                 <span class="badge-flavour">🍫 Choco Truffle</span>
               </div>
               <h3 class="product-name">Little Kanha Choco Truffle Half Kg Cake</h3>
-              <p class="product-short-desc">Janmashtami special Krishna theme chocolate truffle cake with rich ganache.</p>
+              <p class="product-short-desc">Janmashtami special Krishna theme chocolate truffle cake with rich ganache.
+              </p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">850</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle Half Kg Cake', '850', 'Half Kg Cake', 'Choco Truffle', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle Half Kg Cake', '850', 'Half Kg Cake', 'Choco Truffle', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -484,7 +535,8 @@
           </article>
 
           <!-- 13. Little Kanha Vanilla 1 Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="vanilla" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="vanilla"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
               <img src="images/kirshana_theme_1_vanilla_500.png" alt="Little Kanha Vanilla 1 Kg Cake" loading="lazy">
             </div>
@@ -495,13 +547,15 @@
                 <span class="badge-flavour">🍦 Vanilla</span>
               </div>
               <h3 class="product-name">Little Kanha Vanilla 1 Kg Cake</h3>
-              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme vanilla celebration cake for large gatherings.</p>
+              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme vanilla celebration cake for large
+                gatherings.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">900</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla 1 Kg Cake', '900', '1 Kg Cake', 'Vanilla', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Vanilla 1 Kg Cake', '900', '1 Kg Cake', 'Vanilla', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -509,9 +563,11 @@
           </article>
 
           <!-- 14. Little Kanha Pineapple 1 Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="pineapple" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="pineapple"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_2_pineapple_650.png" alt="Little Kanha Pineapple 1 Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_2_pineapple_650.png" alt="Little Kanha Pineapple 1 Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -520,13 +576,15 @@
                 <span class="badge-flavour">🍍 Pineapple</span>
               </div>
               <h3 class="product-name">Little Kanha Pineapple 1 Kg Cake</h3>
-              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme pineapple celebration cake for family & friends.</p>
+              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme pineapple celebration cake for family &
+                friends.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">1,100</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple 1 Kg Cake', '1100', '1 Kg Cake', 'Pineapple', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Pineapple 1 Kg Cake', '1100', '1 Kg Cake', 'Pineapple', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -534,9 +592,11 @@
           </article>
 
           <!-- 15. Little Kanha Butterscotch 1 Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="butterscotch" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="butterscotch"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_3_butterscotch_650.png" alt="Little Kanha Butterscotch 1 Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_3_butterscotch_650.png" alt="Little Kanha Butterscotch 1 Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -545,13 +605,15 @@
                 <span class="badge-flavour">🌰 Butterscotch</span>
               </div>
               <h3 class="product-name">Little Kanha Butterscotch 1 Kg Cake</h3>
-              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme butterscotch celebration cake with praline crunch.</p>
+              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme butterscotch celebration cake with
+                praline crunch.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">1,100</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch 1 Kg Cake', '1100', '1 Kg Cake', 'Butterscotch', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Butterscotch 1 Kg Cake', '1100', '1 Kg Cake', 'Butterscotch', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -559,9 +621,11 @@
           </article>
 
           <!-- 16. Little Kanha Choco Truffle 1 Kg Cake -->
-          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="choco-truffle" onclick="openProductModal(this)">
+          <article class="product-card" data-collection="krishna" data-category="1-kg" data-flavour="choco-truffle"
+            onclick="openProductModal(this)">
             <div class="product-image-box">
-              <img src="images/kirshana_theme_4_truffle_850.png" alt="Little Kanha Choco Truffle 1 Kg Cake" loading="lazy">
+              <img src="images/kirshana_theme_4_truffle_850.png" alt="Little Kanha Choco Truffle 1 Kg Cake"
+                loading="lazy">
             </div>
             <div class="product-content">
               <div class="product-tags-row">
@@ -570,13 +634,15 @@
                 <span class="badge-flavour">🍫 Choco Truffle</span>
               </div>
               <h3 class="product-name">Little Kanha Choco Truffle 1 Kg Cake</h3>
-              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme chocolate truffle cake loaded with rich ganache.</p>
+              <p class="product-short-desc">Grand 1 Kg Janmashtami Krishna theme chocolate truffle cake loaded with rich
+                ganache.</p>
               <div class="product-footer">
                 <div class="product-price-box">
                   <span class="price-currency">₹</span>
                   <span class="price-val">1,400</span>
                 </div>
-                <button type="button" class="btn-direct-order" onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle 1 Kg Cake', '1400', '1 Kg Cake', 'Choco Truffle', 'Krishna Janmashtami')">
+                <button type="button" class="btn-direct-order"
+                  onclick="event.stopPropagation(); directWhatsAppOrder('Little Kanha Choco Truffle 1 Kg Cake', '1400', '1 Kg Cake', 'Choco Truffle', 'Krishna Janmashtami')">
                   Pre Order Now
                 </button>
               </div>
@@ -589,7 +655,8 @@
         <div class="notice-container notice-container-bottom">
           <div class="preorder-alert-banner">
             <span class="alert-icon">⚠️</span>
-            <span class="alert-text"><strong>IMPORTANT:</strong> Please pre-order your cake at least 4 hours in advance.</span>
+            <span class="alert-text"><strong>IMPORTANT:</strong> Please pre-order your cake at least 4 hours in
+              advance.</span>
           </div>
         </div>
 
@@ -604,7 +671,7 @@
         <img src="images/header_logo.png" alt="The Baking Spot Logo" class="footer-img-logo">
       </div>
       <p class="footer-tagline">Every Bake, A Statement. Every Box, A Memory</p>
-      
+
       <!-- Footer Details -->
       <div class="footer-details-grid">
         <div class="footer-detail-item">
@@ -648,10 +715,11 @@
     <div class="sticky-container">
       <div class="sticky-left">
         <span class="pulse-icon">⚡</span>
-        <span><strong>Pre-Orders Open:</strong> Fresh Festive Deliveries in Prateek Grand City (Min 4 hrs in advance)</span>
+        <span><strong>Pre-Orders Open:</strong> Fresh Festive Deliveries in Prateek Grand City (Min 4 hrs in
+          advance)</span>
       </div>
-      <a href="https://wa.me/918440882334?text=Hi%20The%20Baking%20Spot!%20I%20would%20like%20to%20place%20a%20pre-order." 
-         target="_blank" rel="noopener noreferrer" class="btn-sticky-order">
+      <a href="https://wa.me/918440882334?text=Hi%20The%20Baking%20Spot!%20I%20would%20like%20to%20place%20a%20pre-order."
+        target="_blank" rel="noopener noreferrer" class="btn-sticky-order">
         Pre Order Now
       </a>
     </div>
@@ -661,27 +729,29 @@
   <dialog class="product-modal-dialog" id="productModalDialog" aria-labelledby="modalProductName">
     <div class="modal-inner">
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
-      
+
       <div class="modal-grid">
         <div class="modal-image-col">
-          <img src="images/teachers_day_1_butterscotch_600.png" alt="Cake Preview" id="modalProductImg" class="modal-img">
+          <img src="images/teachers_day_1_butterscotch_600.png" alt="Cake Preview" id="modalProductImg"
+            class="modal-img">
         </div>
-        
+
         <div class="modal-details-col">
           <div class="modal-badge-row">
             <span class="modal-event-badge" id="modalEventBadge">📚 Teacher's Day</span>
             <span class="modal-veg-badge">🌱 100% Eggless Pure Veg</span>
           </div>
-          
+
           <h2 class="modal-product-title" id="modalProductName">Teacher’s Day Butterscotch Cake</h2>
-          
+
           <div class="modal-meta-row">
             <span class="modal-cat-pill" id="modalCategoryPill">🎂 Half Kg Cake</span>
             <span class="modal-flavour-pill" id="modalFlavourPill">🌰 Butterscotch</span>
           </div>
 
           <p class="modal-description" id="modalProductDesc">
-            Handcrafted with golden praline crunch, moist sponge, and pure dairy cream. Prepared in a 100% vegetarian sanctified kitchen.
+            Handcrafted with golden praline crunch, moist sponge, and pure dairy cream. Prepared in a 100% vegetarian
+            sanctified kitchen.
           </p>
 
           <div class="modal-preorder-notice">
@@ -695,7 +765,8 @@
           <!-- Custom Message Input -->
           <div class="modal-custom-msg-wrap">
             <label for="modalCustomMsgInput">Custom Message on Cake / Card (Optional):</label>
-            <input type="text" id="modalCustomMsgInput" placeholder="e.g. Best Teacher Ever or Radhe Radhe" maxlength="35" class="modal-msg-input">
+            <input type="text" id="modalCustomMsgInput" placeholder="e.g. Best Teacher Ever or Radhe Radhe"
+              maxlength="35" class="modal-msg-input">
           </div>
 
           <div class="modal-order-action">
@@ -718,4 +789,5 @@
 
   <script src="js/app.js"></script>
 </body>
+
 </html>
